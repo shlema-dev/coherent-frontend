@@ -1,0 +1,243 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+input[type='range'] {
+    width: 400px;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #099250;
+    cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #099250;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100%);
+    }
+}
+
+@layer base {
+    html {
+        @apply antialiased;
+    }
+
+    * {
+        @apply ease-out
+        hover:!duration-75
+        group-hover:!duration-75
+        active:!duration-0
+        group-active:!duration-0;
+
+        &:not(:focus-visible) {
+            outline: none;
+        }
+    }
+}
+
+@layer utilities {
+  .login-gradient {
+    @apply bg-gradient-to-br from-gradient-orange to-gradient-red;
+  }
+}
+
+.dot {
+    background-color: #333;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    margin: 3px;
+    animation-fill-mode: both;
+    animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+.markdown-preview h1 {
+    font-size: 2em !important;
+    font-weight: bold !important;
+    margin-top: 15px !important;
+}
+
+.markdown-preview h2 {
+    font-size: 1.75em !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+}
+
+.markdown-preview h3 {
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    margin-top: 15px !important;
+}
+
+.markdown-preview h4 {
+    font-size: 1.25em !important;
+    font-weight: bold !important;
+    margin-top: 15px !important;
+}
+
+.markdown-preview h5 {
+    font-size: 1em !important;
+    font-weight: bold !important;
+    margin-top: 15px !important;
+}
+
+.markdown-preview h6 {
+    font-size: 0.875em !important;
+    font-weight: bold !important;
+    margin-top: 15px !important;
+}
+
+.markdown-preview ol, .markdown-preview ul {
+    margin: 0 !important;
+    padding-left: 1em !important;
+}
+
+.markdown-preview li {
+    margin: 0.3em 0 !important;
+    line-height: 1.5 !important;
+}
+
+.markdown-preview ol {
+    list-style-type: decimal !important;
+}
+
+.markdown-preview ul {
+    list-style-type: disc !important;
+}
+
+.markdown-preview {
+    font-family: 'Arial', sans-serif !important;
+    line-height: 1.5 !important;
+    margin-top: 50px;
+}
+
+.insight-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.insight-right {
+    display: flex;
+    align-items: center;
+}
+
+.mentions {
+    margin-right: 8px;
+}
+
+.insight-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.insight-container .text-lg {
+    flex-grow: 1;
+    margin-right: 1em; /* Or however much space you want to leave */
+}
+.insight-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;  /* Add a little gap between badges if there are more than one */
+}
+
+/* Badge and color styles from the previous answer */
+.badge {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.no-wrap {
+    white-space: nowrap;
+}
+
+.badge.red {
+    background-color: #ff4c4c;
+    color: white;
+}
+
+.badge.gray {
+    background-color: lightgrey;
+    color: white;
+}
+
+.badge.yellow {
+    background-color: #ffd700;
+    color: black;
+}
+
+.badge.green {
+    background-color: #32cd32;
+    color: white;
+}
+
+/* For Webkit browsers */
+::-webkit-scrollbar {
+    width: 0 !important; /* Width of the vertical scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the draggable scrolling element */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 0;
+}
+
+.custom-scrollbar {
+    scrollbar-width: none;
+}
+
+/* Animation for fading in and popping up */
+.fade-in-up {
+    opacity: var(--fade-opacity, 0);
+    transform: translateY(1rem);
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        --fade-opacity: 1;
+        transform: translateY(0);
+    }
+}
