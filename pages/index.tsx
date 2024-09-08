@@ -11,13 +11,14 @@ import LoadingSpinner from "@/components/LoadingSpinner";
 import { IntentRequestCreate } from "@carbon/icons-react";
 import DemoSpacePreviewCard from "@/components/spaces/demo-space-preview-card";
 import toast from "react-hot-toast";
-import { showDemoSpace } from "@/app/config";
+//import { showDemoSpace } from "@/app/config";
 
 export default function Index() {
   const [isModalOpen, setModalOpen] = useState(false);
   const { spaces, status } = useSelector((state: RootState) => state.spaces);
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
+  const showDemoSpace = true;
 
   const removeSpaceById = (id: number) => {
     const newSpaces = spaces.filter((space: any) => space.id !== id);
@@ -76,25 +77,26 @@ export default function Index() {
               </div>
             ))
           ) : (
-            <div className="self-center prose text-center mx-auto">
-              <p>You don't have any Spaces.</p>
-              <p
-                onClick={openModal}
-                className="underline font-medium cursor-pointer hover:text-black transition-colors"
-              >
-                Create a Space to get started. &rarr;
-              </p>
-            </div>
-          )}
-
-          {showDemoSpace && (
-            <div className="">
-              <DemoSpacePreviewCard
-                id={99999}
-                name="Demo Space"
-                subText="Demo all response types"
-                onDelete={() => {}}
-              />
+            <div className="w-full mt-32 flex flex-col gap-24 justify-center items-center">
+              <div className="self-center prose text-center mx-auto">
+                <p>You don't have any Spaces.</p>
+                <p
+                  onClick={openModal}
+                  className="underline font-medium cursor-pointer hover:text-black transition-colors"
+                >
+                  Create a Space to get started. &rarr;
+                </p>
+              </div>
+              {showDemoSpace && (
+                <div className="">
+                  <DemoSpacePreviewCard
+                    id={99999}
+                    name="Demo Space"
+                    subText="Demo all response types"
+                    onDelete={() => {}}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>
